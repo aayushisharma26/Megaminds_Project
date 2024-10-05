@@ -18,5 +18,26 @@ const product_post = async (req, res) => {
 }
 
 
+const get_product = async (req, res) => {
 
-export { product_post }
+    try {
+        const d = await Product.find({})
+        res.send({
+            message: "All Post",
+            user: d
+        })
+
+    }
+    catch (err) {
+        res.send({
+            message: "Post not found",
+            error: err
+        })
+    }
+
+}
+
+
+
+
+export { product_post ,get_product}
