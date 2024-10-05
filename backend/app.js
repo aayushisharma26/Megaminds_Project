@@ -1,12 +1,17 @@
 import express from "express";
 import mongoose from "mongoose";
-import userRouter from "./routes/userRoute.js"
+import userRouter from "./routes/userRoute.js";
+import dotenv from 'dotenv';
+dotenv.config(); 
+
 const  app = express();
 const PORT = process.env.PORT||4000
 const mongoPassword = process.env.MONGO_PASSWORD
-app.use(express.json())
 
+app.use(express.json())
 app.use("/user",userRouter);
+
+
 const url = `mongodb+srv://aayushisharma1:${mongoPassword}@cluster0.jfztl.mongodb.net/Megaminds`;
 mongoose.connect(url)
 .then(()=>{
