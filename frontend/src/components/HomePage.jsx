@@ -8,6 +8,7 @@ function HomePage() {
             <Navbar />            
             <div className="mt-12">
                 <ProductList />
+                
             </div>
         </>
     );
