@@ -1,6 +1,5 @@
-// Navbar.jsx
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link for routing
+import { Link } from "react-router-dom"; 
 
 const Navbar = () => {
     const toggleMenu = () => {
@@ -11,7 +10,7 @@ const Navbar = () => {
     return (
         <div className="bg-white shadow-md">
             <div className="flex items-center justify-between mx-auto max-w-6xl h-20 px-4">
-                {/* Logo Section */}
+                
                 <div className="flex-none">
                     <h1 className="text-2xl font-bold">
                         <Link className="text-[#39b75d]" to="/" title="logo">
@@ -20,7 +19,7 @@ const Navbar = () => {
                     </h1>
                 </div>
 
-                {/* Centered Search Input */}
+                
                 <div className="flex-1 flex items-center justify-center">
                     <input
                         type="text"
@@ -32,7 +31,7 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Log In/Sign Up for large screens */}
+                
                 <div className="hidden md:flex items-center gap-2 ml-8">
                     <Link to="/login">
                         <button className="border border-[#39b75d] text-black px-4 py-2 rounded hover:bg-[#39b75d] hover:text-white transition duration-300">Log In</button>
@@ -42,7 +41,7 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                {/* Mobile Menu Button */}
+                
                 <div className="md:hidden">
                     <button className="text-black" onClick={toggleMenu}>
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +51,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+           
             <div id="mobileMenu" className="md:hidden hidden">
                 <ul className="block text-gray-600">
                     <li>

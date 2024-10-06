@@ -1,12 +1,14 @@
-// HomePage.jsx
 import React from "react";
-import Navbar from "./Navbar"; // Correct import for Navbar
+import Navbar from "./Navbar"; 
+import ProductList from "./ProductList"; 
 
 function HomePage() {
     return (
         <>
-            <Navbar />
-            <h1 className="text-3xl text-center mt-10">Welcome to Megaminds</h1>
+            <Navbar />            
+            <div className="mt-12">
+                <ProductList />
+            </div>
         </>
     );
 }
