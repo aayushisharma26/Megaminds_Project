@@ -13,6 +13,10 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const mongoPassword = process.env.MONGO_PASSWORD;
 app.use(cors());
+
+app.get("/",(req,res)=>{
+    res.json({message:"Hello world from backend"})
+})
 app.use(express.json());
 app.use("/user", userRouter);
 app.use("/product", productRouter); 
