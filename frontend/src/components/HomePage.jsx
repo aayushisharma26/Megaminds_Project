@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "./Navbar"; 
+// import Navbar from "./Navbar"; 
 import ProductList from "./ProductList"; 
 
 function HomePage() {
     return (
         <>
-            <Navbar />            
+            {/* <Navbar />             */}
             <div className="mt-12">
                 <ProductList />
                 
