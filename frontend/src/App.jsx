@@ -5,6 +5,7 @@ import Signup from './components//Signup.jsx';
 
 import HomePage from './components//HomePage'; 
 import ProductDetail from './components/ProductDetail'; 
+import Login from './components/Login.jsx';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
         <Route path="/" element={<HomePage />} />  
         <Route path="/product/:id" element={<ProductDetail />} />  
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+
       </Routes>
     </Router>
   );
