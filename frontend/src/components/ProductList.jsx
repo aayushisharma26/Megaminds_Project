@@ -12,7 +12,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/product/productGet');
+        const response = await axios.get('megaminds-project.vercel.app/product/productGet');
         if (response.data && Array.isArray(response.data.products)) {
           setProducts(response.data.products);
         } else {
