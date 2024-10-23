@@ -50,4 +50,5 @@ const getBYId= async (req, res) => {
 
   
 
+
 export { product_post, get_product,getBYId};
