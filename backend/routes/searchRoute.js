@@ -1,6 +1,6 @@
 import express from "express"
 
-import  {searchPost} from '../routes/searchProduct.js'
+import  {searchPost} from '../controller/searchProduct.js'
 
 const router = express.Router()
 

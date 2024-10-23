@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const Search = new mongoose.Schema({
+const searchSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -11,6 +11,7 @@ const Search = new mongoose.Schema({
         required:true
     },
     image:{
+        type:String,
         required:true,
 
     },
@@ -25,3 +26,7 @@ const Search = new mongoose.Schema({
     }
 
 })
+
+const Search = mongoose.model('Search', searchSchema);
+
+export default Search;

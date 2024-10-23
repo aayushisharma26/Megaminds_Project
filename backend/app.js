@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
+import searchRouter from "./routes/searchRoute.js"
 import cors from "cors";
 
 import dotenv from "dotenv";
@@ -20,6 +21,8 @@ app.get("/",(req,res)=>{
 app.use(express.json());
 app.use("/user", userRouter);
 app.use("/product", productRouter); 
+app.use("/search",searchRouter)
+
 
 const url = `mongodb+srv://aayushisharma1:${mongoPassword}@cluster0.jfztl.mongodb.net/Megaminds`;
 mongoose.connect(url)
