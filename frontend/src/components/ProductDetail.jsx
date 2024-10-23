@@ -11,7 +11,7 @@ const ProductDetail = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/product/getBYId/${id}`);
+                const response = await axios.get(`http://megaminds-project.vercel.app/product/getBYId/${id}`);
                 setProduct(response.data.product);
                 setLoading(false);
             } catch (error) {

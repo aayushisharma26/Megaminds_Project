@@ -39,6 +39,12 @@ const Navbar = () => {
                     <Link to="/signup">
                         <button className="bg-[#39b75d] text-black px-4 py-2 rounded hover:bg-[#6EC207] hover:text-white transition duration-300">Sign Up</button>
                     </Link>
+
+                    <Link to="/addcart">
+                        <button className="bg-[#39b75d] text-black px-4 py-2 rounded hover:bg-[#6EC207] hover:text-white transition duration-300">Add Cart</button>
+                    </Link>
+
+
                 </div>
 
                 
@@ -59,6 +65,14 @@ const Navbar = () => {
                     </li>
                     <li>
                         <Link to="/signup" className="block px-4 py-2 hover:text-[#39b75d]">Sign Up</Link>
+                    </li>
+
+                    <li>
+                        <Link to="/signup" className="block px-4 py-2 hover:text-[#39b75d]">Sign Up</Link>
+                    </li>
+
+                    <li>
+                        <Link to="/addcart" className="block px-4 py-2 hover:text-[#39b75d]">Cart</Link>
                     </li>
                 </ul>
             </div>
