@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
-const ProductList = () => {
+const ProductList = ({ searchTerm }) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
-  // Fetch data from API
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -18,33 +16,33 @@ const ProductList = () => {
         } else {
           throw new Error("Unexpected response structure");
         }
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching data", error);
         setError("Failed to load products.");
-        setLoading(false);
       }
     };
 
     fetchProducts();
   }, []);
 
-  const handleProductClick = (productId) => {
-    navigate(`/product/${productId}`); 
-  };
+  const filteredProducts = searchTerm
+    ? products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    : products;
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
+  };
 
   return (
     <div className="container mx-auto my-8">
       <h2 className="text-2xl font-bold mb-4">Our Most Popular Products</h2>
+      {error && <div className="text-red-500">{error}</div>} {/* Show error if exists */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <div
             key={product._id}
             className="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer"
-            onClick={() => handleProductClick(product._id)} // Navigate when clicked
+            onClick={() => handleProductClick(product._id)}
           >
             <div className="h-64 w-full">
               <img

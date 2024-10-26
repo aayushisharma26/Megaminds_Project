@@ -1,18 +1,16 @@
 import React from "react";
-import Navbar from "./Navbar"; 
-import ProductList from "./ProductList"; 
-import Footer from "./Footer";
+import ProductList from "./ProductList";
+import SearchResults from "./SearchResults";
 
-function HomePage() {
+function HomePage({ searchTerm }) {
     return (
-        <>
-            {/* <Navbar />             */}
-            {/* <div className="mt-12"> */}
-            <ProductList />
-            {/* <Footer/> */}
-                
-            {/* </div> */}
-        </>
+        <div>
+            {searchTerm ? (
+                <SearchResults searchTerm={searchTerm} />
+            ) : (
+                <ProductList />
+            )}
+        </div>
     );
 }
 
