@@ -7,6 +7,7 @@ import ProductDetail from './components/ProductDetail';
 import Login from './components/Login';
 import AddToCart from './components/AddToCart';
 
+
 function App() {
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -25,3 +26,19 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

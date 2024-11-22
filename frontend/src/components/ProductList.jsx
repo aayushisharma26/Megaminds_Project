@@ -58,6 +58,10 @@ const ProductList = ({ searchTerm }) => {
               </div>
               <h3 className="text-black text-lg font-bold">{product.name}</h3>
             </div>
+            <button
+                className="mt-4 w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+                // onClick={() => handleAddToCart(product._id)}
+              >Cart</button>
           </div>
         ))}
       </div>
@@ -66,3 +70,4 @@ const ProductList = ({ searchTerm }) => {
 };
 
 export default ProductList;
+
