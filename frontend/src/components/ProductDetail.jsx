@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const ProductDetail = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://megaminds-project.vercel.app/product/getBYId/${id}`);
+                const response = await axios.get(`http://localhost:4000/product/products/${id}`);
                 setProduct(response.data.product);
                 setLoading(false);
             } catch (error) {

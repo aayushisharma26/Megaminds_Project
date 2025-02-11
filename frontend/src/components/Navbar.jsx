@@ -1,11 +1,14 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({ onSearch }) => {
+const Navbar = () => {
     const [searchInput, setSearchInput] = useState('');
+    const navigate = useNavigate();
 
     const handleSearch = () => {
-        onSearch(searchInput);  
+        if (searchInput.trim() !== '') {
+            navigate(`/search?query=${searchInput}`);
+        }
     };
 
     return (
@@ -32,9 +35,9 @@ const Navbar = ({ onSearch }) => {
                     </button>
                 </div>
                 <div className="hidden md:flex gap-2">
-                    <Link to="/login">Log In</Link>
-                    <Link to="/signup">Sign Up</Link>
-                    <Link to="/addcart">Add Cart</Link>
+                    <Link to="/login" className="bg-[#39b75d] text-white px-4 py-2 rounded-lg">Log In</Link>
+                    <Link to="/signup" className="bg-[#39b75d] text-white px-4 py-2 rounded-lg">Sign Up</Link>
+                    <Link to="/addcart" className="bg-[#39b75d] text-white px-4 py-2 rounded-lg">Add Cart</Link>
                 </div>
             </div>
         </div>

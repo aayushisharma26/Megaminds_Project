@@ -1,41 +1,51 @@
-import React from 'react';
+// import React from 'react';
 
-function Footer() {
-    return (
-        <footer className="bg-green-800 text-white py-8 fixed bottom-0 left-0 w-full">
-            <div className="container mx-auto text-center md:text-left">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div>
-                        <h2 className="text-2xl font-bold mb-4">About Us</h2>
-                        <p className="text-gray-400">
-                            We are passionate developers dedicated to creating the best web experiences.
-                        </p>
-                    </div>
-                    <div>
-                        <h2 className="text-2xl font-bold mb-4">Quick Links</h2>
-                        <ul className="space-y-2">
-                            <li><a href="#home" className="hover:text-gray-400">Home</a></li>
-                            <li><a href="#about" className="hover:text-gray-400">About</a></li>
-                            <li><a href="#projects" className="hover:text-gray-400">Projects</a></li>
-                            <li><a href="#contact" className="hover:text-gray-400">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-                        <p className="text-gray-400">
-                            Email: info@example.com
-                        </p>
-                        <p className="text-gray-400">
-                            Phone: +123 456 7890
-                        </p>
-                    </div>
-                </div>
-                <div className="mt-8 text-gray-400">
-                    &copy; {new Date().getFullYear()} My Portfolio. All rights reserved.
-                </div>
-            </div>
-        </footer>
-    );
-}
+const Footer = () => {
+  return (
+    <div className="bg-black text-white flex flex-wrap justify-between px-4 py-12">
+      {/* Customer Services */}
+      <div className="flex-1 min-w-[200px] mx-2 text-center mb-6">
+        <h3 className="text-lg font-semibold mb-4">CUSTOMER SERVICES</h3>
+        <p className="mb-2 hover:text-blue-500 cursor-pointer">About Lock The Box</p>
+        <p className="mb-2 hover:text-blue-500 cursor-pointer">How It Works?</p>
+        <p className="mb-2 hover:text-blue-500 cursor-pointer">Upcoming Events</p>
+        <p className="mb-2 hover:text-blue-500 cursor-pointer">FAQs</p>
+        <p className="mb-2 hover:text-blue-500 cursor-pointer">Feedback</p>
+      </div>
+
+      {/* Contact Us */}
+      <div className="flex-1 min-w-[200px] mx-2 text-center mb-6">
+        <h3 className="text-lg font-semibold mb-4">CONTACT US</h3>
+        <p className="mb-2">WhatsApp Us <span className="text-blue-500">9050111218</span></p>
+        <p className="mb-2">Call Us <span className="text-blue-500">9050111218</span></p>
+      </div>
+
+      {/* Social Presence */}
+      <div className="flex-1 min-w-[200px] mx-2 text-center mb-6">
+        <h3 className="text-lg font-semibold mb-4">SOCIAL PRESENCE</h3>
+        <div className="flex justify-center space-x-4 mb-4">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <i className="fa fa-facebook-f hover:scale-110 transition-transform"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <i className="fa fa-instagram hover:scale-110 transition-transform"></i>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+            <i className="fa fa-twitter hover:scale-110 transition-transform"></i>
+          </a>
+          <a href="https://wa.me/9050111218" target="_blank" rel="noopener noreferrer">
+            <i className="fa fa-whatsapp hover:scale-110 transition-transform"></i>
+          </a>
+        </div>
+        <img
+          className="rounded-full h-16 w-16 mx-auto mb-2"
+          src="https://e7.pngegg.com/pngimages/142/76/png-clipart-white-and-orange-book-logo-symbol-yellow-orange-logo-ibooks-orange-logo-thumbnail.png"
+          alt="Download App"
+        />
+        <h3 className="text-lg font-semibold">DOWNLOAD APP</h3>
+      </div>
+    </div>
+  );
+};
 
 export default Footer;

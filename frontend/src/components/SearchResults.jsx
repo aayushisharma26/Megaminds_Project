@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+//final code hai ye
 
-const SearchResults = ({ searchTerm }) => {
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
+
+const SearchResults = () => {
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    
     const navigate = useNavigate();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const searchTerm = queryParams.get("query");
 
     useEffect(() => {
         const fetchResults = async () => {
@@ -28,11 +34,13 @@ const SearchResults = ({ searchTerm }) => {
     }, [searchTerm]);
 
     const handleResultClick = (resultId) => {
-        navigate(`/result/${resultId}`);
+        console.log("Navigating to:", `/search/${resultId}`);
+        navigate(`/search/${resultId}`); // ✅ Use `/search/${resultId}` instead of `/product/${resultId}`
     };
+    
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
+    if (loading) return <div className="text-center text-gray-500">Loading...</div>;
+    if (error) return <div className="text-red-500 text-center">{error}</div>;
 
     return (
         <div className="container mx-auto my-8">
@@ -41,9 +49,9 @@ const SearchResults = ({ searchTerm }) => {
                 {results.length > 0 ? (
                     results.map((item) => (
                         <div
-                            key={item.id} 
+                            key={item._id}  
                             className="border rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer w-full" 
-                            onClick={() => handleResultClick(item.id)}
+                            onClick={() => handleResultClick(item._id)}
                         >
                             <div className="h-64 w-full flex items-center justify-center">
                                 <img
@@ -54,10 +62,9 @@ const SearchResults = ({ searchTerm }) => {
                             </div>
                             <hr className="border-gray-300 my-2" />
                             <div className="p-4">
-                                {/* <h3 className="text-black text-lg font-bold">{item.name}</h3> */}
+                                <h3 className="text-black text-lg font-bold">{item.name}</h3>
                                 <p className="text-gray-600 text-sm line-clamp-2">{item.description}</p>
-                                <p className="text-gray-600 text-sm line-clamp-2">{item.price}</p>
-
+                                <p className="text-green-600 font-bold">{item.price}</p>
                             </div>
                         </div>
                     ))
@@ -70,3 +77,16 @@ const SearchResults = ({ searchTerm }) => {
 };
 
 export default SearchResults;
+
+
+
+
+
+
+
+
+
+
+
+
+

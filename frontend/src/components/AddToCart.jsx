@@ -1,33 +1,47 @@
-import React from 'react';
-import { FaStar } from 'react-icons/fa'; 
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";  
 
 const AddToCart = () => {
-  return (
-    <div className="max-w-7xl w-full mx-auto border rounded-lg shadow-lg overflow-hidden py-6 mt-7 min-h-[100px]">
-      <div className="flex">
-        <div className="w-3/6 p-4">
-          <img
-            src="https://m.media-amazon.com/images/I/71kcHw6TMeL._AC_SY741_.jpg"
-            alt="Product"
-            className="w-full h-[200px] object-contain"
-          />
-        </div>
+    const [cartItems, setCartItems] = useState([]);
+    const navigate = useNavigate();  
 
-        <div className="w-3/6 p-4">
-          <h1 className="text-xl font-semibold mb-2">Amazing Product</h1>
-          <p className="text-md text-gray-500 mb-4">Price: ₹500</p>
-          <p className="text-md text-gray-500 mb-4">
-            This product is perfect for your needs. Durable, affordable, and highly rated!
-          </p>
-          <button
-            className="mt-12 w-40 bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition-colors"
-          >
-            Delete
-          </button>
+    useEffect(() => {
+        const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+        setCartItems(storedCart);
+    }, []);
+
+    const handleItemClick = (id) => {
+        navigate(`/search/${id}`);
+    };
+
+    return (
+        <div className="container mx-auto my-24">
+            <h2 className="text-3xl font-bold mb-6">Your Cart</h2>
+
+            {cartItems.length === 0 ? (
+                <p className="text-gray-600">No items in cart.</p>
+            ) : (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {cartItems.map((item, index) => (
+                        <div 
+                            key={index} 
+                            className="bg-white shadow-md rounded-lg p-4 cursor-pointer" 
+                            onClick={() => handleItemClick(item._id)}  
+                        >
+                            <img 
+                                src={item.image} 
+                                alt={item.name} 
+                                className="w-full h-40 object-contain rounded-md" 
+                            />
+                            <h3 className="text-lg font-semibold mt-2">{item.name}</h3>
+                            <p className="text-gray-600">{item.description}</p>
+                            <p className="text-lg font-bold mt-2">₹{item.price}</p>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default AddToCart;

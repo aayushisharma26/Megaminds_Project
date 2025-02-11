@@ -1,15 +1,13 @@
-import React from "react";
+// import React from "react";
 import ProductList from "./ProductList";
-import SearchResults from "./SearchResults";
+// import SearchResults from "./SearchResults";
 
-function HomePage({ searchTerm }) {
+function HomePage() {
     return (
         <div>
-            {searchTerm ? (
-                <SearchResults searchTerm={searchTerm} />
-            ) : (
-                <ProductList />
-            )}
+             
+            <ProductList />
+            
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 const Signup = () => {
@@ -12,15 +12,19 @@ const Signup = () => {
         e.preventDefault(); 
 
         try {
-            const response = await axios.post('https://megaminds-project.vercel.app/user/register', {
+            const response = await axios.post('http://localhost:4000/user/register', {
                 name,
                 email,
                 password
             });
 
-            
             setMessage(response.data.message); 
+            alert('Signup successful!');
             setError(null); 
+
+            // Optionally, store user info in localStorage
+            // localStorage.setItem('user', JSON.stringify({ name, email }));
+
         } catch (error) {
             setError(error.response?.data?.message || 'An error occurred. Please try again.');
             setMessage(null); 
