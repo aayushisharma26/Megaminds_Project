@@ -48,7 +48,7 @@ const login_data = async (req, res) => {
     console.log("Generated Token:", token); // Log the generated token
 
 
-    res.status(200).json({ message: "Login successful", token });
+    res.status(200).json({ message: "Login successful", token ,user});
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }
