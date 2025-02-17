@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // For navigating to the Home page
 
 const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState("COD");
   const [user, setUser] = useState(null);
   const [product, setProduct] = useState(null);
   const [selectedScanner, setSelectedScanner] = useState(null); 
+  const [paymentSuccess, setPaymentSuccess] = useState(false); // State for success message
+
+  const navigate = useNavigate(); // Hook to navigate to the home page after successful payment
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -23,8 +27,12 @@ const Checkout = () => {
     setSelectedScanner(null); 
   };
 
-  const handleContinue = () => {
-    alert(`Payment method selected: ${paymentMethod}`);
+  const handleOrderNow = () => {
+    // Set payment success state and navigate after some time
+    setPaymentSuccess(true);
+    setTimeout(() => {
+      navigate("/"); // Redirect to homepage
+    }, 2000); // Wait 2 seconds before redirecting
   };
 
   return (
@@ -33,6 +41,7 @@ const Checkout = () => {
         Order Summary
       </h2>
       
+      {/* User Details */}
       {user ? (
         <div className="mb-6 p-4 bg-gray-100 rounded-lg">
           <p className="text-gray-700"><strong>Name:</strong> {user.name}</p>
@@ -44,6 +53,7 @@ const Checkout = () => {
 
       <hr className="my-6 border-gray-300" />
 
+      {/* Product Details */}
       <h3 className="text-2xl font-semibold text-gray-700 mb-4">Product Details</h3>
       {product ? (
         <div className="p-4 bg-gray-100 rounded-lg">
@@ -56,6 +66,7 @@ const Checkout = () => {
 
       <hr className="my-6 border-gray-300" />
 
+      {/* Payment Method */}
       <h3 className="text-2xl font-semibold text-gray-700 mb-4">Select Payment Method</h3>
       <div className="space-y-4">
         <label className="flex items-center space-x-3 p-3 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 transition">
@@ -100,12 +111,19 @@ const Checkout = () => {
         </div>
       )}
 
-      {/* Continue Button */}
+      {/* Success Message */}
+      {paymentSuccess && (
+        <div className="mt-6 p-4 bg-green-100 text-center text-green-600 rounded-lg">
+          Payment Successfully Done! Redirecting to homepage...
+        </div>
+      )}
+
+      {/* Order Now Button */}
       <button
-        onClick={handleContinue}
+        onClick={handleOrderNow}
         className="w-full mt-8 py-3 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-700 transition"
       >
-        Continue
+        Order Now
       </button>
     </div>
   );
