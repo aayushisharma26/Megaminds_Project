@@ -12,7 +12,7 @@ const Signup = () => {
         e.preventDefault(); 
 
         try {
-            const response = await axios.post('http://localhost:4000/user/register', {
+            const response = await axios.post('https://megaminds-project-1uqo.vercel.app/user/register', {
                 name,
                 email,
                 password

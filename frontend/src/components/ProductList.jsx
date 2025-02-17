@@ -10,7 +10,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/product/products');
+        const response = await axios.get('https://megaminds-project-1uqo.vercel.app/product/products');
         if (response.data && Array.isArray(response.data.products)) {
           setProducts(response.data.products);
         } else {

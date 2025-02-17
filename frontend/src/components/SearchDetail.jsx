@@ -10,7 +10,7 @@ const SearchDetail = () => {
     useEffect(() => {
         const fetchSearchDetail = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/search/searchbyid/${id}`);
+                const response = await axios.get(`https://megaminds-project-1uqo.vercel.app/search/searchbyid/${id}`);
                 setProduct(response.data.product);
             } catch (error) {
                 console.error("🔥 Error fetching product details:", error);
