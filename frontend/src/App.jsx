@@ -25,8 +25,7 @@ function App() {
                 <Route path="/search" element={<SearchResults />} />  
                 <Route path="/search/:id" element={<SearchDetail />} />
                 <Route path="/addcart" element={<AddToCart />} />  {/* AddToCart route */}
-                <Route path="/checkout" element={<Checkout />} />
-            </Routes>
+                <Route path="/checkout/:id" element={<Checkout />} />            </Routes>
             <Footer />
         </Router>
     );
