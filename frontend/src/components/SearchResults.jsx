@@ -74,6 +74,7 @@
 // };
 
 // export default SearchResults;
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -92,7 +93,7 @@ const SearchResults = () => {
         const fetchResults = async () => {
             try {
                 if (searchTerm) {
-                    const response = await axios.get(`http://localhost:4000/search/searchget?tags=${searchTerm}`);
+                    const response = await axios.get(`https://megaminds-project-1uqo.vercel.app/search/searchget?tags=${searchTerm}`);
                     setResults(response.data);
                 } else {
                     setResults([]);
