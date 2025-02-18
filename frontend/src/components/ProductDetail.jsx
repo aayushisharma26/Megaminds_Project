@@ -35,11 +35,11 @@ const ProductDetail = () => {
     };
 
     return (
-        <div className="container mx-auto my-16 px-6">
+        <div className="container mx-auto my-0 md:my-16 px-6">
             {product && (
                 <div className="flex flex-col md:flex-row items-center md:items-start p-8">
                     
-                    {/* Product Image (Same as SearchDetail) */}
+                    {/* Product Image */}
                     <div className="w-full md:w-1/2 flex justify-center">
                         <img
                             src={product.image}
@@ -48,16 +48,16 @@ const ProductDetail = () => {
                         />
                     </div>
 
-                    {/* Product Details (Same height as image) */}
-                    <div className="w-full md:w-1/2 mt-6 md:mt-0 md:ml-12 p-6 rounded-lg h-[450px] flex flex-col justify-between">
+                    {/* Product Details */}
+                    <div className="w-full md:w-1/2 mt-0 md:mt-0 md:ml-12 p-6 rounded-lg h-[350px] flex flex-col justify-between">
                         <div>
                             <h2 className="text-3xl font-bold text-gray-800">{product.name}</h2>
-                            <p className="text-gray-600 mt-3 text-lg">{product.description}</p>
-                            <p className="text-2xl font-semibold text-red-500 mt-3">₹{product.price}</p>
-                            <p className="text-gray-600 mt-2">Category: <span className="font-medium text-gray-800">{product.category?.name || "N/A"}</span></p>
+                            <p className="text-gray-600 mt-6 text-lg">{product.description}</p>
+                            <p className="text-2xl font-semibold text-lack-500 mt-5">₹{product.price}</p>
+                            <p className="text-gray-600 mt-5">Category: <span className="font-medium text-gray-800">{product.category?.name || "N/A"}</span></p>
                         </div>
 
-                        {/* Buttons (Same style as SearchDetail) */}
+                        {/* Buttons */}
                         <div className="mt-6 flex gap-4">
                             <button 
                                 className="border border-gray-400 text-gray-700 px-6 py-3 text-base rounded-md hover:bg-gray-100 transition-all"

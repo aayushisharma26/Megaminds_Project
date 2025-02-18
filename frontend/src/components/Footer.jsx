@@ -1,8 +1,6 @@
-// import React from 'react';
-
 const Footer = () => {
   return (
-    <div className="bg-black text-white flex flex-wrap justify-between px-4 py-12">
+    <div className="bg-black text-white flex flex-wrap justify-between px-4 py-12 mt-auto">
       {/* Customer Services */}
       <div className="flex-1 min-w-[200px] mx-2 text-center mb-6">
         <h3 className="text-lg font-semibold mb-4">CUSTOMER SERVICES</h3>

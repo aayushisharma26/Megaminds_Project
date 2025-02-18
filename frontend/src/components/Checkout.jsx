@@ -36,7 +36,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-8 bg-white shadow-xl rounded-2xl mt-12 border">
+    <div className="max-w-lg mx-auto p-8 bg-white shadow-xl rounded-2xl mt-12 border mb-8">
       <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
         Order Summary
       </h2>
