@@ -38,10 +38,10 @@ const AddToCart = () => {
                     {cartItems.map((item, index) => (
                         <div 
                             key={index} 
-                            className="bg-white shadow-md rounded-lg p-6 w-full max-w-[1100px] h-[300px] flex flex-col md:flex-row items-center border border-gray-200"
+                            className="bg-white shadow-md rounded-lg p-6 w-full max-w-[1100px] h-auto flex flex-col md:flex-row items-center border border-gray-200"
                         >
                             {/* Product Image (No Border, Bigger Size) */}
-                            <div className="w-full md:w-1/3 flex justify-center" onClick={() => handleItemClick(item._id)}>
+                            <div className="w-full md:w-1/3 flex justify-center mb-4 md:mb-0" onClick={() => handleItemClick(item._id)}>
                                 <img 
                                     src={item.image} 
                                     alt={item.name} 
@@ -58,7 +58,7 @@ const AddToCart = () => {
                                 </div>
 
                                 {/* Buttons (Compact & Minimal Style) */}
-                                <div className="mt-4 flex gap-4 justify-start">
+                                <div className="mt-4 flex flex-col md:flex-row gap-4 justify-start">
                                     <button 
                                         className="border border-gray-400 text-gray-700 px-6 py-3 text-base rounded-md hover:bg-gray-100 transition-all"
                                         onClick={() => handleRemove(item._id)} // Remove item from cart
