@@ -109,7 +109,7 @@ const ProductList = () => {
     <div className="container mx-auto my-8">
       <h2 className="text-2xl font-bold mb-4">Our Most Popular Products</h2>
       {error && <div className="text-red-500">{error}</div>}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {products.map((product) => (
           <div
             key={product._id}
